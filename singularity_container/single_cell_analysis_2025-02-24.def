@@ -1,0 +1,82 @@
+Bootstrap: library 
+From: ebbertlab/ebbert_lab_base_environment/ebbert_lab_base_environment:sha256.4b7779c4e7a1d7e8a38159cfe302b5cdb025398f43537a4cc3b703f1fb4bf1b4
+
+%environment
+	# seq up environment for when using the container
+	. /opt/conda/etc/profile.d/conda.sh
+	conda activate
+
+%post
+    	## Install miniconda ##
+	wget https://repo.anaconda.com/miniconda/Miniconda3-py312_24.11.1-0-Linux-x86_64.sh
+	bash Miniconda3-py312_24.11.1-0-Linux-x86_64.sh -b -f -p /opt/conda
+	rm Miniconda3-py312_24.11.1-0-Linux-x86_64.sh
+
+	. /opt/conda/etc/profile.d/conda.sh
+	
+	conda activate
+	conda install python=3.10.13
+
+	python --version
+
+	echo "conda 24.11.3" >> /opt/conda/conda-meta/pinned
+
+        ## Install R ##
+	sudo apt-get update
+	sudo apt-get install -y libfontconfig1-dev libharfbuzz-dev libfribidi-dev libfftw3-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev cmake
+	sudo apt-get install -y --no-install-recommends software-properties-common dirmngr
+	wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo gpg --dearmor -o /usr/share/keyrings/r-project.gpg
+	echo "deb [signed-by=/usr/share/keyrings/r-project.gpg] https://cloud.r-project.org/bin/linux/ubuntu jammy-cran40/" | sudo tee -a /etc/apt/sources.list.d/r-project.list
+	sudo apt update
+	sudo apt install -y r-base r-base-core r-recommended r-base-dev
+
+	pip install jupyter nbconvert numpy
+	pip install --upgrade numpy
+	pip install anndata muon seaborn requests scanpy pandas pybiomart bioservices rdata matplotlib
+	pip install --upgrade anndata
+	pip install adjustText gseapy statsmodels 
+	pip install joblib 
+	# needed for goatools
+	pip install docopt xlsxwriter pydot 
+	pip install et-xmlfile openpyxl ftpretty
+	####
+	pip install rpy2
+	pip install lckr-jupyterlab-variableinspector 
+	pip install cellphonedb igraph leidenalg polars 
+	pip install torch scipy scvi-tools scikit-image scrublet setuptools
+	pip install goatools 
+	
+	git clone https://github.com/asrhou/NATMI.git
+	
+
+	# set search path for jupyter to ignore home folder
+	export JUPYTER_CONFIG_DIR=/usr/local/etc/jupyter/
+	export JUPYTER_PATH=/usr/local/share/jupyter
+
+	# install R packages
+	R -e "install.packages('IRkernel'); IRkernel::installspec(prefix = '/usr/local', user = FALSE)"
+	R -e "install.packages('BiocManager')"
+	R -e "install.packages('Seurat')"
+	R -e "BiocManager::install('biomaRt')"
+	R -e "BiocManager::install('multtest')"
+	R -e "BiocManager::install('metap')"
+	R -e "BiocManager::install('Rsamtools', dependencies = TRUE)"
+	R -e "install.packages('tidyverse')"
+	R -e "install.packages('patchwork')" 
+	R -e "install.packages('data.table')" 
+	R -e "install.packages('cowplot')" 
+	R -e "install.packages('conflicted')"
+	R -e "install.packages('devtools')"
+	R -e "devtools::install_github('ans4013/ScisorWiz')"
+	R -e "devtools::install_github('hyochoi/SCISSOR')"
+
+%labels
+	Madeline L. Page
+	Name Single-cell analysis pipeline
+	Version v1.0.0
+
+%help
+
+   	NOTE THAT VERSIONS OF THE SOFTWARE INSTALLED WILL CHANGE THROUGH TIME IF YOU BUILD THE IMAGE FROM THE RECIPE FILE.
+        TO GET THE ORIGINAL VERSION OF THIS CONTAINER PULL IT FROM THE SINGULARITY LIB. For that command and for more information about the use of this singularity container access: https://github.com/UK-SBCoA-EbbertLab/single_cell_nextflow_pipeline
+	
