@@ -42,7 +42,7 @@ From: ebbertlab/ebbert_lab_base_environment/ebbert_lab_base_environment:sha256.4
 	####
 	pip install rpy2
 	pip install lckr-jupyterlab-variableinspector 
-	pip install cellphonedb igraph leidenalg polars 
+	pip install cellphonedb igraph leidenalg polars pyarrow
 	pip install torch scipy scvi-tools scikit-image scrublet setuptools
 	pip install goatools 
 	
