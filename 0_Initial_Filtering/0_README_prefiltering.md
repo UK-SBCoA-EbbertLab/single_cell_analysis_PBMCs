@@ -89,7 +89,7 @@ java ExpressionMatrixProcessor --two-column-header --input-dir RawData_iso --cel
 
 ---
 
-### 📤 Output Files (per input `Sample1.txt`)
+### Output Files (per input `Sample1.txt`)
 
 | Output File | Description |
 |--------------|-------------|
