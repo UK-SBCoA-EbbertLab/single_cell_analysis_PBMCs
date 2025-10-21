@@ -34,12 +34,12 @@ tail -f ExpressionMatrixProcessor_iso.log
 - Isoform and gene files must be separated in distinct directories (e.g., RawData_gene and RawData_iso) within the home one, since each will require a separate iteration. 
 - These input matrices can be very large and will typically require execution on a high-performance computing (HPC) cluster.
 
-Header formats:
-(1) One-column header (gene-level)
+#### Header formats:
+##### (1) One-column header (gene-level)
     GeneID    Cell1    Cell2 ...
     ENSGXX    0        1.333333  ...
 
-(2) Two-column header (isoform-level)
+##### (2) Two-column header (isoform-level)
     TranscriptID  GeneID  Cell1  Cell2 ...
     ENSTXX        ENSGXX  0      2.33333  ...
 
