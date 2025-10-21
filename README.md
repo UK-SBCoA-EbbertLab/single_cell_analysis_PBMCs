@@ -18,7 +18,8 @@ This step annotates the expression matrices produced in Step 0 and prepares the 
 ### Step 2 -- Quality Control Filtering
 This step loads the .h5ad matrices from Step 1 and computes per-cell, per-gene, and per-isoform quality control metrics. Cells are filtered based on the thresholds determined for total reads, % mitochondrial genes/isoforms, number of unique genes/isoforms, and % hemoglobin genes/isoforms per cell (see Table S2). Genes and isoforms with low expression in both replicates (<10 cells) were removed. Doublet detection and removal are performed using the Scrublet package and datasets were concatenated for downstream modeling. Optional summary statistics are also generated as shown in Table S7.
 
-### Step 3 -- AutoZI Parameter Tuning
+### Step 3 -- AutoZI Parameter Tuning (optional)
+These scripts were used to identify which parameters best modeled our PBMC dataset based on convergence of training and validation ELBO curves, batch mixing and T cell marker expression cluster distinction.
 
 ### Step 4 -- AutoZI Modeling
 
