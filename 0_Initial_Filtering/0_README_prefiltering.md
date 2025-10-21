@@ -1,15 +1,11 @@
-============================================================
-# ExpressionMatrixProcessor
-============================================================
+## ExpressionMatrixProcessor
 This Java processing script is designed to filter and transpose tab-delimited expression matrices (genes/isoforms x cells) to reduce file size for downstream supervised filtering. It performs the following functions: 
 (1) Removes low-depth cells
 (2) Removes rarely expressed genes and isoforms
 (3) Rounds numeric values to two decimal places. If the result after rounding is an integer, decimals are removed.
 (4) Write a filtered and filtered-transposed matrix for each input file. 
 
-------------------------------------------------------------
-## BASELINE COMMAND (example run)
-------------------------------------------------------------
+### BASELINE COMMAND (example run)
 # (1) load java on HPC cluster
 module load ccs/java/java-11.0.2
 
@@ -30,10 +26,8 @@ nohup java ExpressionMatrixProcessor --two-column-header --input-dir RawData_iso
 ps aux | grep ExpressionMatrixProcessor
 tail -f ExpressionMatrixProcessor_iso.log
 
-------------------------------------------------------------
-## INPUT REQUIREMENTS
-------------------------------------------------------------
 
+### INPUT REQUIREMENTS
 - Input directory must contain at least one .txt raw count matrices.
 - The program only processes files ending with .txt, all others are ignored
 - Only include .txt files in the input directory that you want processed. 
@@ -51,10 +45,8 @@ Header formats:
 
 Use --two-column-header for isoform-level input files.
 
-------------------------------------------------------------
-## COMMAND-LINE OPTIONS
-------------------------------------------------------------
 
+### COMMAND-LINE OPTIONS
 --two-column-header
     Indicates input has TranscriptID and GeneID columns (no argument). This is used for isoform-level data and is not needed to process gene-level data. (Default = Off)
 
@@ -71,10 +63,8 @@ Examples:
 java ExpressionMatrixProcessor --input-dir RawData_gene --cell-threshold 300 --gene-min-cells 10 > gene.log 2>&1
 java ExpressionMatrixProcessor --two-column-header --input-dir RawData_iso --cell-threshold 300 --gene-min-cells 10 > iso.log 2>&1
 
-------------------------------------------------------------
-## OUTPUT FILES (per input Sample1.txt)
-------------------------------------------------------------
 
+### OUTPUT FILES (per input Sample1.txt)
 Sample1.filtered_expression_matrix.txt
     Filtered file after removing low-depth cells.
 
@@ -93,8 +83,7 @@ Sample1.null_values.txt
 Temporary files:
     Created under temp_transpose_<sample>/ during transposition.
 
-------------------------------------------------------------
-### ACKNOWLEDGMENT
-------------------------------------------------------------
+
+#### ACKNOWLEDGMENT
 Developed by Mark Ebbert, University of Kentucky. 
 Intended for use in long-read single-cell and isoform-level RNA expression processing pipelines. If used in a publication, please cite the associated paper, methods, and repository.
