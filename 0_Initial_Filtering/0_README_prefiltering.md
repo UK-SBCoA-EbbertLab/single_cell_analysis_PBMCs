@@ -10,7 +10,7 @@ It performs the following functions:
 
 ---
 
-### 🧩 Baseline Command (Example Run)
+### Baseline Command (Example Run)
 
 #### (1) Load Java on HPC cluster
 ```bash
@@ -46,7 +46,7 @@ tail -f ExpressionMatrixProcessor_iso.log
 
 ---
 
-### 📥 Input Requirements
+### Input Requirements
 
 - Input directory must contain one or more `.txt` raw count matrices.  
 - Only files ending with `.txt` are processed; others are ignored.  
@@ -72,7 +72,7 @@ Use `--two-column-header` for isoform-level input files.
 
 ---
 
-### ⚙️ Command-Line Options
+### Command-Line Options
 
 | Option | Description | Default |
 |--------|--------------|----------|
@@ -104,8 +104,8 @@ java ExpressionMatrixProcessor --two-column-header --input-dir RawData_iso --cel
 
 ---
 
-### 🧠 Acknowledgment
+### Acknowledgment
 
-Developed by **Mark Ebbert**, University of Kentucky.  
+Developed by Mark Ebbert, University of Kentucky.  
 Intended for use in long-read single-cell and isoform-level RNA expression processing pipelines.  
 If used in a publication, please cite the associated paper, methods, and repository.
