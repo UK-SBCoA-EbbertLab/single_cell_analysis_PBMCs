@@ -6,23 +6,23 @@ This Java processing script is designed to filter and transpose tab-delimited ex
 (4) Write a filtered and filtered-transposed matrix for each input file. 
 
 ### BASELINE COMMAND (example run)
-# (1) load java on HPC cluster
+#### (1) load java on HPC cluster
 module load ccs/java/java-11.0.2
 
-# (2) Compile and run on HPC node
+#### (2) Compile and run on HPC node
 javac ExpressionMatrixProcessor.java
 
-# (3) Run on gene-level data
+#### (3) Run on gene-level data
 nohup java ExpressionMatrixProcessor --input-dir RawData > ExpressionMatrixProcessor_gene.log 2>&1 &
 
-# (4) (optional) Monitor running process
+#### (4) (optional) Monitor running process
 ps aux | grep ExpressionMatrixProcessor
 tail -f ExpressionMatrixProcessor_gene.log
 
-# (5) Run on isoform-level data
+#### (5) Run on isoform-level data
 nohup java ExpressionMatrixProcessor --two-column-header --input-dir RawData_iso > ExpressionMatrixProcessor_iso.log 2>&1 &
 
-# (6) (optional) Monitor running process
+#### (6) (optional) Monitor running process
 ps aux | grep ExpressionMatrixProcessor
 tail -f ExpressionMatrixProcessor_iso.log
 
