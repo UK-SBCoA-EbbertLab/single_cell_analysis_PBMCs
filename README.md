@@ -9,20 +9,20 @@ This analysis pipeline consists of 9 steps, including one  which consist of tuni
 
 ### Step 0 -- Initial Filtering
 
-## Step 1 -- Count Matrix Preparation
+### Step 1 -- Count Matrix Preparation
 
-## Step 2 -- Quality Control Filtering
+### Step 2 -- Quality Control Filtering
 
-## Step 3 -- AutoZI Parameter Tuning
+### Step 3 -- AutoZI Parameter Tuning
 
-## Step 4 -- AutoZI Modeling
+### Step 4 -- AutoZI Modeling
 
-## Step 5 -- Cell-Type Assignment
+### Step 5 -- Cell-Type Assignment
 
-## Step 6 -- Sub-Cell Type Assignment
+### Step 6 -- Sub-Cell Type Assignment
 
-## Step 7 -- Bulk Figure Generation
+### Step 7 -- Bulk Figure Generation
 
-## Step 8 -- Paper Figure Generation
+### Step 8 -- Paper Figure Generation
 
-## Step 9 -- Unique / Raw Count Analyses
+### Step 9 -- Unique / Raw Count Analyses
