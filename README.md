@@ -18,13 +18,17 @@ This step annotates the expression matrices produced in Step 0 and prepares the 
 ### Step 2 -- Quality Control Filtering
 This step loads the .h5ad matrices from Step 1 and computes per-cell, per-gene, and per-isoform quality control metrics. Cells are filtered based on the thresholds determined for total reads, % mitochondrial genes/isoforms, number of unique genes/isoforms, and % hemoglobin genes/isoforms per cell (see Table S2). Genes and isoforms with low expression in both replicates (<10 cells) were removed. Doublet detection and removal are performed using the Scrublet package and datasets were concatenated for downstream modeling. Optional summary statistics are also generated as shown in Table S7.
 
-### Step 3 -- AutoZI Parameter Tuning
+### Step 3 -- AutoZI Parameter Tuning (optional)
+These scripts were used to identify which parameters best modeled our PBMC dataset based on convergence of training and validation ELBO curves, batch mixing and T cell marker expression cluster distinction. These are split by gene and isoform parameter tuning for efficiency, since AutoZI can be computationally intensive.
 
 ### Step 4 -- AutoZI Modeling
+Based on the parameters determined from Step 3, the concatenated datasets from Step 2 are submitted as a job for AutoZI modeling via these python scripts. 
 
 ### Step 5 -- Cell-Type Assignment
+This step individually plots potential cell-type markers, from known flow cytometry markers of each cell-type. This script shows the process we went through to narrow down appropriate markers from our starting list. We then used the determined markers to assign cell-type and created Figures 3a-b and 3d-m from our manuscript. 
 
 ### Step 6 -- Sub-Cell Type Assignment
+This step separated out the T cells from the main dataset and determined sub-cell-types based on known flow cytometry markers of each cell-type. This script shows the process we underwent to narrow down appropriate markers from our starting list. We then used the determined markers to assign cell-type and created Figures 5a-b and 5f-m. 
 
 ### Step 7 -- Bulk Figure Generation
 
