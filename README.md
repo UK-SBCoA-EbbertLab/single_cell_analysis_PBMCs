@@ -29,13 +29,13 @@ This step evaluates AutoZI model parameters on a small subset of the data to ide
 Based on the optimal parameters determined from Step 3, the concatenated datasets from Step 2 undergo AutoZI modeling via these python scripts. Each modeling job requests 500GB of total memory and outputs error and training logs. The resulting trained models include latent representations and zero-inflation probabilities, which are stored within MuData (.h5mu) objects for integration with downstream analyses. Isoform and Gene modeling jobs are submitted separately. 
 
 ### Step 5 -- Cell-Type Assignment
-This step initially verifies AutoZI model performance from Step 4 by inspecting ELBO convergence of training and validation data. Once model convergence is confirmed, denoised and batch-normalized expression values and latent representations are used for clustering and cell-type identification. Appropriate clustering resolution is determined based on expression of markers for major immune cell types using established flow cytometry markers. Candidate markers are visualized on individual UMAPs and iterative marker refinement is performed to assign cell-types with a high level of confidence. We then used the determined markers to assign cell-type and created Figures 3a-b and 3d-m from our manuscript. 
+This step initially verifies AutoZI model performance from Step 4 by inspecting ELBO convergence of training and validation data. Once model convergence is confirmed, denoised and batch-normalized expression values and latent spaces are used to perform KNN clustering. vompute UMAPs, and run Leiden clustering across multiple resolutions. Appropriate clustering resolution is determined based on cluster separation, batch mixing, and canonical marker patterns. Candidate immune markers for major immune cell types are evaluated from established flow cytometry markers. Candidate markers are visualized on individual UMAPs and iterative marker refinement is performed to assign cell-types with a high level of confidence. We then used the determined markers to assign cell-type and created Figures 3a-b and 3d-m from our manuscript. 
 
-### Step 6 -- Sub-Cell Type Assignment
-This step isolates the T cell cluster from the full dataset and identifies sub-cell-types based on canonical gene markers. Sub-cell-type marker refinement was performed similarly to step 5, and sub-cell-types were assigned, as shown in Figures 5a-b and 5f-m of the manuscript. 
-
-### Step 7 -- Bulk Figure Generation
+### Step 6 -- Bulk Figure Generation
 This step generates Figures 1 and S1 in the manuscript, illustrating general trends in isoform length, structure, and characteristics of novel isoforms and genes.
+
+### Step 7 -- Sub-Cell Type Assignment
+This step isolates the T cell cluster from the full dataset and identifies sub-cell-types based on canonical gene markers. Sub-cell-type marker refinement was performed similarly to step 5, and sub-cell-types were assigned, as shown in Figures 5a-b and 5f-m of the manuscript. 
 
 ### Step 8 -- Paper Figure Generation
 This step generates dot-plots and heatmaps to visualize isoform-level differential expression of isoforms across cell-types and sub-cell-types. In our manuscript, the resulting figures can be seen in Figures 3c, 5c, 6a, and 6b. 
