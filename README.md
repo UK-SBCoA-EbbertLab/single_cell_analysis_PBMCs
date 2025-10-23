@@ -41,7 +41,7 @@ This step isolates the T cell cluster from the full dataset and identifies sub-c
 This step generates dot-plots and heatmaps to visualize isoform-level differential expression of isoforms across cell-types and sub-cell-types. In our manuscript, the resulting figures can be seen in Figures 3c, 5c, 6a, and 6b. 
 
 ### Step 9 -- Unique / Raw Count Analyses
-This step is used as a confirmation of raw and unique count expression for marker genes across cell-types and sub-cell-types to ensure the validity of these as markers on the cell-type-level, prior to AutoZI modeling and denoising. These analyses correspond to Figures 6d,e and Supplemental File 2 of our manuscript. 
+This step is used as a confirmation of raw and unique count expression for marker genes across cell-types and sub-cell-types to ensure the validity of these as markers on the cell-type-level, prior to AutoZI modeling and denoising. These analyses correspond to Figures 6d,e and Supplemental File 2 of our manuscript. Inputs for this step requires filtering of unique counts matrices via Step 0 and AnnData isoform-level data object with raw counts and metadata with cell-type and sub-cell-type annotations.
 
 ### Step 10 -- RNAPysoform Analyses
 This step models transcript structures for both known and new isoforms from known genes. It also adds biotypes to our extended GTF and assigns new transcripts to the biotype "novel" to allow biotype coloration for all transcripts in our dataset. These analyses produced Figures 6c and 6f in the manuscript.  
