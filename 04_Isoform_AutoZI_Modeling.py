@@ -1,5 +1,5 @@
 # =============================================
-# AUTOZI SCRIPT FOR GENE-LEVEL ANALYSIS
+# AUTOZI SCRIPT FOR ISOFORM-LEVEL ANALYSIS
 # =============================================
 
 import os
