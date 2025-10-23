@@ -32,7 +32,7 @@ Based on the optimal parameters determined from Step 3, the concatenated dataset
 This step initially verifies AutoZI model performance from Step 4 by inspecting ELBO convergence of training and validation data. Once model convergence is confirmed, denoised and batch-normalized expression values and latent spaces are used to perform KNN clustering. vompute UMAPs, and run Leiden clustering across multiple resolutions. Appropriate clustering resolution is determined based on cluster separation, batch mixing, and canonical marker patterns. Candidate immune markers for major immune cell types are evaluated from established flow cytometry markers. Candidate markers are visualized on individual UMAPs and iterative marker refinement is performed to assign cell-types with a high level of confidence. We then used the determined markers to assign cell-type and created Figures 3a-b and 3d-m from our manuscript. 
 
 ### Step 6 -- Bulk Figure Generation
-This step generates Figures 1 and S1 in the manuscript, illustrating general trends in isoform length, structure, and characteristics of novel isoforms and genes.
+This step generates Figure 1 and Supplemental Figure S1 in the manuscript, illustrating general trends in isoform length, structure, and characteristics of novel isoforms and genes. This script requires the original Ensembl GTF with biotypes (e.g., Homo_sapiens.GRCh38.113.gtf) and an extended annotation GTF produced by the preprocessing pipeline (e.g., extended_annotations.gtf). 
 
 ### Step 7 -- Sub-Cell Type Assignment
 This step isolates the T cell cluster from the full dataset and identifies sub-cell-types based on canonical gene markers. Sub-cell-type marker refinement was performed similarly to step 5, and sub-cell-types were assigned, as shown in Figures 5a-b and 5f-m of the manuscript. 
@@ -44,6 +44,8 @@ This step generates dot-plots and heatmaps to visualize isoform-level differenti
 This step is used as a confirmation of raw and unique count expression for marker genes across cell-types and sub-cell-types to ensure the validity of these as markers on the cell-type-level, prior to AutoZI modeling and denoising. These analyses correspond to Figures 6d,e and Supplemental File 2 of our manuscript. 
 
 ### Step 10 -- RNAPysoform Analyses
-This step uses the RNAPysoform Python package created by Bernardo Aguzzoli Heberle in the Ebbert lab, which can be found here: https://rna-pysoforms.readthedocs.io/en/latest/. 
+This step models transcript structures for both known and new isoforms from known genes. It also adds biotypes to our extended GTF and assigns new transcripts to the biotype "novel" to allow biotype coloration for all transcripts in our dataset. These analyses produced Figures 6c and 6f in the manuscript.  
 
-This package models transcript structures for both known and new isoforms from known genes. These analyses produced Figures 6c and 6f in the manuscript.  
+In this step, we use the RNAPysoform Python package created by Bernardo Aguzzoli Heberle in the Ebbert lab, which can be found here: https://rna-pysoforms.readthedocs.io/en/latest/. 
+
+
