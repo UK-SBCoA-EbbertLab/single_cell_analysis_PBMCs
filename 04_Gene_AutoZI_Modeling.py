@@ -13,7 +13,7 @@ from scvi.model import AUTOZI
 import scipy.sparse
 
 # === Load and Prepare Gene-Level Data ===
-Int_folder = "Intermediate_Files/QC_07232025"
+Int_folder = "Intermediate_Files/QC"
 
 # Load concatenated, QC-filtered gene-level data (PBMC1 + PBMC2)
 adata_g_filter = read_h5ad(os.path.join(Int_folder, "Concatenated_Gene_Data.h5ad"))
