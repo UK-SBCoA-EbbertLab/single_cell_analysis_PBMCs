@@ -49,3 +49,9 @@ This step models transcript structures for both known and new isoforms from know
 In this step, we use the RNAPysoform Python package created by Bernardo Aguzzoli Heberle in the Ebbert lab, which can be found here: https://rna-pysoforms.readthedocs.io/en/latest/. 
 
 
+### Acknowledgment
+Developed by Patricia Doyle and Mark Ebbert, University of Kentucky.
+Intended for use in long-read single-cell and isoform-level RNA expression processing pipelines.
+If used in a publication, please cite the associated paper, methods, and repository.
+
+
